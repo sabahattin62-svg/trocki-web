@@ -35,7 +35,8 @@ function updateAbout(lang){const el=document.querySelector("#about .about-conten
 document.querySelectorAll("[data-lang]").forEach(b=>b.addEventListener("click",()=>setTimeout(()=>updateAbout(b.dataset.lang),0)));
 updateAbout(localStorage.getItem("lang")||"tr");
 
-/* V12 persistent gallery: IndexedDB */
+
+/* V13 cloud gallery - Supabase Storage */
 (function(){
   const input=document.getElementById("photoInput");
   const grid=document.getElementById("galleryGrid");
@@ -43,87 +44,68 @@ updateAbout(localStorage.getItem("lang")||"tr");
   const clearBtn=document.getElementById("clearBtn");
   if(!input || !grid) return;
 
-  const DB="trocki_gallery_v12";
-  const STORE="photos";
-  let db;
+  const url=window.TROCKI_SUPABASE_URL;
+  const key=window.TROCKI_SUPABASE_KEY;
+  const configured=url && key && !url.includes("BURAYA_") && !key.includes("BURAYA_");
 
-  function openDB(){
-    return new Promise((resolve,reject)=>{
-      if(!window.indexedDB){reject(new Error("IndexedDB unavailable"));return;}
-      const req=indexedDB.open(DB,1);
-      req.onupgradeneeded=e=>{
-        const d=e.target.result;
-        if(!d.objectStoreNames.contains(STORE)){
-          d.createObjectStore(STORE,{keyPath:"id",autoIncrement:true});
-        }
-      };
-      req.onsuccess=e=>{db=e.target.result;resolve(db)};
-      req.onerror=()=>reject(req.error);
-    });
+  function msg(t){ if(empty){empty.textContent=t;empty.style.display="block";} }
+
+  if(!configured){
+    msg("Çevrimiçi galeri henüz bağlanmadı. Supabase ayarlarını tamamlayın.");
+    return;
   }
-  function all(){
-    return new Promise((resolve,reject)=>{
-      const r=db.transaction(STORE,"readonly").objectStore(STORE).getAll();
-      r.onsuccess=()=>resolve(r.result||[]);
-      r.onerror=()=>reject(r.error);
+
+  const client=supabase.createClient(url,key);
+  const BUCKET="trocki-gallery";
+
+  async function load(){
+    const {data,error}=await client.storage.from(BUCKET).list("",{
+      limit:200,offset:0,sortBy:{column:"created_at",order:"desc"}
     });
-  }
-  function add(photo){
-    return new Promise((resolve,reject)=>{
-      const r=db.transaction(STORE,"readwrite").objectStore(STORE).add(photo);
-      r.onsuccess=()=>resolve(r.result);
-      r.onerror=()=>reject(r.error);
-    });
-  }
-  function remove(id){
-    return new Promise((resolve,reject)=>{
-      const r=db.transaction(STORE,"readwrite").objectStore(STORE).delete(id);
-      r.onsuccess=resolve;r.onerror=()=>reject(r.error);
-    });
-  }
-  function clear(){
-    return new Promise((resolve,reject)=>{
-      const r=db.transaction(STORE,"readwrite").objectStore(STORE).clear();
-      r.onsuccess=resolve;r.onerror=()=>reject(r.error);
-    });
-  }
-  function render(items){
+    if(error){console.error(error);msg("Galeri yüklenemedi.");return;}
     grid.innerHTML="";
-    empty.style.display=items.length?"none":"block";
-    items.sort((a,b)=>b.created-a.created).forEach(item=>{
-      const card=document.createElement("div");
-      card.className="gallery-item";
-      const img=document.createElement("img");
-      img.alt=item.name||"Troçki fotoğrafı";
-      img.src=URL.createObjectURL(item.blob);
-      const actions=document.createElement("div");
-      actions.className="gallery-actions";
-      const del=document.createElement("button");
-      del.className="gallery-delete";
-      del.textContent=(document.documentElement.lang==="en"?"Delete":document.documentElement.lang==="fr"?"Supprimer":document.documentElement.lang==="de"?"Löschen":"Sil");
-      del.onclick=async()=>{await remove(item.id);render(await all())};
-      actions.appendChild(del);card.appendChild(img);card.appendChild(actions);grid.appendChild(card);
-    });
+    if(!data || !data.length){msg("Henüz fotoğraf yok.");return;}
+    empty.style.display="none";
+    for(const item of data){
+      if(!item.name) continue;
+      const {data:pub}=client.storage.from(BUCKET).getPublicUrl(item.name);
+      const card=document.createElement("div");card.className="gallery-item";
+      const img=document.createElement("img");img.src=pub.publicUrl;img.alt=item.name;
+      const actions=document.createElement("div");actions.className="gallery-actions";
+      const del=document.createElement("button");del.className="gallery-delete";
+      del.textContent="Sil";
+      del.onclick=async()=>{
+        const {error}=await client.storage.from(BUCKET).remove([item.name]);
+        if(error) alert("Silme başarısız: "+error.message); else load();
+      };
+      actions.appendChild(del);card.append(img,actions);grid.appendChild(card);
+    }
   }
-  async function init(){
-    try{await openDB();render(await all())}
-    catch(e){console.error("Gallery database error",e);empty.style.display="block"}
-  }
+
   input.addEventListener("change",async()=>{
-    if(!db) return;
-    const files=[...input.files];
+    const files=[...input.files].filter(f=>f.type.startsWith("image/"));
     for(const file of files){
-      if(!file.type.startsWith("image/")) continue;
-      await add({name:file.name,type:file.type,blob:file,created:Date.now()});
+      const safe=file.name.toLowerCase().replace(/[^a-z0-9._-]+/g,"-");
+      const path=Date.now()+"-"+crypto.randomUUID()+"-"+safe;
+      const {error}=await client.storage.from(BUCKET).upload(path,file,{
+        cacheControl:"3600",upsert:false,contentType:file.type
+      });
+      if(error) alert("Yükleme başarısız: "+error.message);
     }
     input.value="";
-    render(await all());
+    load();
   });
+
   clearBtn?.addEventListener("click",async()=>{
-    if(!db) return;
-    if(confirm(document.documentElement.lang==="en"?"Delete all photos?":document.documentElement.lang==="fr"?"Supprimer toutes les photos ?":document.documentElement.lang==="de"?"Alle Fotos löschen?":"Tüm fotoğraflar silinsin mi?")){
-      await clear();render([]);
+    const {data,error}=await client.storage.from(BUCKET).list("",{limit:1000});
+    if(error){alert(error.message);return;}
+    const names=(data||[]).map(x=>x.name).filter(Boolean);
+    if(!names.length)return;
+    if(confirm("Tüm çevrimiçi fotoğraflar silinsin mi?")){
+      const r=await client.storage.from(BUCKET).remove(names);
+      if(r.error)alert("Silme başarısız: "+r.error.message);else load();
     }
   });
-  init();
+
+  load();
 })();
