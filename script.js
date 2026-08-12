@@ -1,6 +1,20 @@
-const toggle=document.getElementById('themeToggle');
-toggle.addEventListener('click',()=>{document.body.classList.toggle('light');toggle.textContent=document.body.classList.contains('light')?'Koyu Mod ☾':'Açık Mod ☼';});
-const links=[...document.querySelectorAll('nav a')];
-const sections=[...document.querySelectorAll('main section[id]')];
-const observer=new IntersectionObserver(entries=>entries.forEach(e=>{if(e.isIntersecting){links.forEach(l=>l.classList.toggle('active',l.getAttribute('href')==='#'+e.target.id));}}),{rootMargin:'-35% 0px -55% 0px'});
+const $=s=>document.querySelector(s), $$=s=>document.querySelectorAll(s);
+const themeBtn=$("#themeBtn"), menuBtn=$("#menuBtn"), nav=$("#nav");
+themeBtn.addEventListener("click",()=>{document.body.classList.toggle("light");themeBtn.textContent=document.body.classList.contains("light")?"☾":"☼";});
+menuBtn.addEventListener("click",()=>{nav.style.display=nav.style.display==="flex"?"none":"flex";nav.style.position="absolute";nav.style.top="70px";nav.style.left="5vw";nav.style.right="5vw";nav.style.padding="20px";nav.style.background="var(--panel)";nav.style.border="1px solid var(--line)";nav.style.borderRadius="16px";nav.style.flexDirection="column";});
+$$(".filter").forEach(btn=>btn.addEventListener("click",()=>{$$(".filter").forEach(x=>x.classList.remove("active"));btn.classList.add("active");const f=btn.dataset.filter;$$(".post").forEach(p=>p.style.display=f==="all"||p.dataset.category===f?"grid":"none");}));
+const modal=$("#searchModal"), input=$("#searchInput"), results=$("#searchResults");
+const searchable=[...$$("h2"),...$$(".post h3"),...$$(".article h3"),...$$(".project h3")];
+$("#searchBtn").onclick=()=>{modal.classList.add("show");input.focus();};
+$("#closeSearch").onclick=()=>modal.classList.remove("show");
+input.addEventListener("input",()=>{const q=input.value.toLowerCase().trim();results.innerHTML=q?searchable.filter(e=>e.textContent.toLowerCase().includes(q)).map(e=>`<div class="search-result"><a href="#${e.closest("section")?.id||"home"}">${e.textContent}</a></div>`).join(""):"";});
+const lightbox=$("#lightbox"), lbImg=$("#lightboxImg");
+$$(".gallery-item").forEach(x=>x.addEventListener("click",()=>{lbImg.src=x.dataset.img;lightbox.classList.add("show");}));
+$("#closeLightbox").onclick=()=>lightbox.classList.remove("show");
+[modal,lightbox].forEach(m=>m.addEventListener("click",e=>{if(e.target===m)m.classList.remove("show");}));
+document.addEventListener("keydown",e=>{if(e.key==="Escape"){modal.classList.remove("show");lightbox.classList.remove("show")}});
+
+const links=[...$$("nav a")];
+const sections=[...document.querySelectorAll("main section[id]")];
+const observer=new IntersectionObserver(entries=>entries.forEach(entry=>{if(entry.isIntersecting){links.forEach(a=>a.style.color=a.getAttribute("href")==="#"+entry.target.id?"var(--accent)":"");}}),{rootMargin:"-40% 0px -50% 0px"});
 sections.forEach(s=>observer.observe(s));
