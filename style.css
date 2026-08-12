@@ -14,3 +14,5 @@ body.dark-theme .top nav{background:#0d1116}
 body.dark-theme .top nav a{border-color:#252a32}
 .themeBtn{border:1px solid #444c58;background:transparent;color:#f0a23a;padding:5px 9px;cursor:pointer}
 @media(max-width:950px){.themeBtn{order:2}.langs{order:3}.menuBtn{order:1}}
+
+.about-content{max-width:900px;margin-top:28px}.about-content h3{font-size:28px;margin:38px 0 12px}.about-content p{font-size:18px;line-height:1.8;color:#aeb6c0}.about-content blockquote{margin:28px 0;padding:20px 24px;border-left:3px solid #f0a23a;font-size:30px;font-style:italic;color:#f0a23a}.about-content .signature{margin-top:34px;font-size:20px;color:#f0a23a}
