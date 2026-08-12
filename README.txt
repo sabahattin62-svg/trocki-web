@@ -1,7 +1,8 @@
-TROÇKİ WEB GÜNCEL SÜRÜM
-- 4 dil: Türkçe / English / Français / Deutsch
-- Anarşizm makalesi Yazılar bölümünde
-- Makale sonunda — Troçki imzası
-- iPhone fotoğraf yükleme, galeri ve silme
-- Mobil uyumlu
-Netlify'a ZIP'i açıp içindeki dosyaları birlikte deploy edin.
+TROÇKİ WEB V4
+- 4 dil: TR / EN / FR / DE
+- Mobil üç çizgi menü çalışır ve seçim sonrası kapanır
+- Renkli kart tasarımı
+- Spinoza makalesi
+- Anarşizm makalesi
+- Fotoğraf yükleme/galeri/silme
+Netlify için index.html, style.css ve app.js dosyalarını birlikte deploy edin.
