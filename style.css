@@ -16,3 +16,12 @@ body.dark-theme .top nav a{border-color:#252a32}
 @media(max-width:950px){.themeBtn{order:2}.langs{order:3}.menuBtn{order:1}}
 
 .about-content{max-width:900px;margin-top:28px}.about-content h3{font-size:28px;margin:38px 0 12px}.about-content p{font-size:18px;line-height:1.8;color:#aeb6c0}.about-content blockquote{margin:28px 0;padding:20px 24px;border-left:3px solid #f0a23a;font-size:30px;font-style:italic;color:#f0a23a}.about-content .signature{margin-top:34px;font-size:20px;color:#f0a23a}
+
+/* V12 gallery */
+#galleryGrid{display:grid;grid-template-columns:repeat(auto-fill,minmax(220px,1fr));gap:18px;margin-top:28px}
+.gallery-item{position:relative;background:#11151b;border:1px solid #2a3039;border-radius:16px;overflow:hidden;box-shadow:0 10px 30px rgba(0,0,0,.25)}
+.gallery-item img{display:block;width:100%;aspect-ratio:4/3;object-fit:cover}
+.gallery-item .gallery-actions{display:flex;justify-content:flex-end;padding:10px}
+.gallery-delete{border:1px solid #4a515c;background:#181d24;color:#eee;border-radius:8px;padding:7px 12px;cursor:pointer}
+.gallery-delete:hover{border-color:#f0a23a;color:#f0a23a}
+.gallery-empty{padding:30px 0;color:#9ca4af}

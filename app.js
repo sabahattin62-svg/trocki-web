@@ -34,3 +34,96 @@ function updateAbout(lang){const el=document.querySelector("#about .about-conten
 
 document.querySelectorAll("[data-lang]").forEach(b=>b.addEventListener("click",()=>setTimeout(()=>updateAbout(b.dataset.lang),0)));
 updateAbout(localStorage.getItem("lang")||"tr");
+
+/* V12 persistent gallery: IndexedDB */
+(function(){
+  const input=document.getElementById("photoInput");
+  const grid=document.getElementById("galleryGrid");
+  const empty=document.getElementById("empty");
+  const clearBtn=document.getElementById("clearBtn");
+  if(!input || !grid) return;
+
+  const DB="trocki_gallery_v12";
+  const STORE="photos";
+  let db;
+
+  function openDB(){
+    return new Promise((resolve,reject)=>{
+      if(!window.indexedDB){reject(new Error("IndexedDB unavailable"));return;}
+      const req=indexedDB.open(DB,1);
+      req.onupgradeneeded=e=>{
+        const d=e.target.result;
+        if(!d.objectStoreNames.contains(STORE)){
+          d.createObjectStore(STORE,{keyPath:"id",autoIncrement:true});
+        }
+      };
+      req.onsuccess=e=>{db=e.target.result;resolve(db)};
+      req.onerror=()=>reject(req.error);
+    });
+  }
+  function all(){
+    return new Promise((resolve,reject)=>{
+      const r=db.transaction(STORE,"readonly").objectStore(STORE).getAll();
+      r.onsuccess=()=>resolve(r.result||[]);
+      r.onerror=()=>reject(r.error);
+    });
+  }
+  function add(photo){
+    return new Promise((resolve,reject)=>{
+      const r=db.transaction(STORE,"readwrite").objectStore(STORE).add(photo);
+      r.onsuccess=()=>resolve(r.result);
+      r.onerror=()=>reject(r.error);
+    });
+  }
+  function remove(id){
+    return new Promise((resolve,reject)=>{
+      const r=db.transaction(STORE,"readwrite").objectStore(STORE).delete(id);
+      r.onsuccess=resolve;r.onerror=()=>reject(r.error);
+    });
+  }
+  function clear(){
+    return new Promise((resolve,reject)=>{
+      const r=db.transaction(STORE,"readwrite").objectStore(STORE).clear();
+      r.onsuccess=resolve;r.onerror=()=>reject(r.error);
+    });
+  }
+  function render(items){
+    grid.innerHTML="";
+    empty.style.display=items.length?"none":"block";
+    items.sort((a,b)=>b.created-a.created).forEach(item=>{
+      const card=document.createElement("div");
+      card.className="gallery-item";
+      const img=document.createElement("img");
+      img.alt=item.name||"Troçki fotoğrafı";
+      img.src=URL.createObjectURL(item.blob);
+      const actions=document.createElement("div");
+      actions.className="gallery-actions";
+      const del=document.createElement("button");
+      del.className="gallery-delete";
+      del.textContent=(document.documentElement.lang==="en"?"Delete":document.documentElement.lang==="fr"?"Supprimer":document.documentElement.lang==="de"?"Löschen":"Sil");
+      del.onclick=async()=>{await remove(item.id);render(await all())};
+      actions.appendChild(del);card.appendChild(img);card.appendChild(actions);grid.appendChild(card);
+    });
+  }
+  async function init(){
+    try{await openDB();render(await all())}
+    catch(e){console.error("Gallery database error",e);empty.style.display="block"}
+  }
+  input.addEventListener("change",async()=>{
+    if(!db) return;
+    const files=[...input.files];
+    for(const file of files){
+      if(!file.type.startsWith("image/")) continue;
+      await add({name:file.name,type:file.type,blob:file,created:Date.now()});
+    }
+    input.value="";
+    render(await all());
+  });
+  clearBtn?.addEventListener("click",async()=>{
+    if(!db) return;
+    if(confirm(document.documentElement.lang==="en"?"Delete all photos?":document.documentElement.lang==="fr"?"Supprimer toutes les photos ?":document.documentElement.lang==="de"?"Alle Fotos löschen?":"Tüm fotoğraflar silinsin mi?")){
+      await clear();render([]);
+    }
+  });
+  init();
+})();

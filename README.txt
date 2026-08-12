@@ -1,7 +1,6 @@
-TROÇKİ WEB V8
-- Koyu tema tüm ana yüzeylerde uygulanmıştır.
-- TR / EN / FR / DE arayüz metinleri genişletilmiştir.
-- Makaleler: Spinoza, Anarşizm, Nietzsche.
-- Fotoğraf galerisi ve iletişim e-postası korunmuştur.
-- Ana sayfa portresi için index.html içindeki hero alanına istenen fotoğraf daha sonra eklenebilir.
-- Netlify: ZIP'i açıp index.html, style.css ve app.js dosyalarını birlikte deploy edin.
+TROÇKİ WEB V12
+- Fotoğraf galerisi IndexedDB ile kalıcı hale getirildi.
+- iPhone'dan JPEG/PNG/WebP/GIF fotoğraf seçimi desteklenir.
+- Fotoğraflar sayfa yenilense bile tarayıcıda kalır.
+- Fotoğraf başına Sil ve tümünü Temizle seçenekleri vardır.
+- V11'in tüm diğer özellikleri korunmuştur.
