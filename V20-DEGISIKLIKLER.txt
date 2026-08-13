@@ -1,0 +1,7 @@
+TROÇKİ WEB V20
+
+- Kullanıcının bu konuşmada yüklediği GERÇEK FOTOĞRAF siteye dahil edildi.
+- Fotoğraf assets/trocki.jpg olarak ZIP içinde paketlendi.
+- Ana sayfadaki hero fotoğrafı artık bu yerel dosyayı kullanıyor.
+- Böylece Netlify'a yüklenen sitede fotoğrafın başka cihazlarda da görünmesi sağlandı.
+- Küçük ziyaretçi sayacı, koyu tema, makaleler, galeri, hakkında, iletişim ve dil seçici korunmuştur.
