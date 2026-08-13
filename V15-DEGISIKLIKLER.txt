@@ -1,0 +1,5 @@
+TROÇKİ WEB V15
+- Instagram @trocki22 eklendi.
+- Projeler bölümü ve menü bağlantıları kaldırıldı.
+- Toplam ziyaretçi sayacı eklendi.
+- Mevcut site dosyaları korunarak güncellendi.
