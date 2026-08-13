@@ -20,3 +20,5 @@
 .gallery-note{margin-top:18px;opacity:.6;font-size:12px;line-height:1.7}
 @media (max-width:900px){.gallery-grid{grid-template-columns:repeat(2,minmax(0,1fr))}.gallery-item img{height:240px}}
 @media (max-width:560px){.gallery-grid{grid-template-columns:1fr}.gallery-item img{height:360px}.gallery-count{width:100%;margin-bottom:6px}}
+
+.upload-status{display:inline-block;font-size:.85rem;opacity:0;transition:opacity .2s;color:inherit;margin-left:.5rem}.upload-status.error{color:#b33}.remote-photo{border-color:rgba(255,255,255,.16)}

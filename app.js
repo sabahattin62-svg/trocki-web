@@ -126,14 +126,82 @@ document.querySelectorAll("[data-lang]").forEach(b=>b.onclick=()=>setLang(b.data
 setLang(localStorage.getItem("trocki-lang")||"tr");
 
 const input=document.getElementById("photoInput"),grid=document.getElementById("galleryGrid");
-if(input){
-  input.onchange=()=>[...input.files].forEach(f=>{
-    const u=URL.createObjectURL(f),d=document.createElement("figure");
-    d.className="gallery-item";
-    d.innerHTML=`<img src="${u}" alt="Yeni yüklenen Troçki fotoğrafı"><figcaption>Yeni fotoğraf</figcaption>`;
-    grid.appendChild(d);
-  });
+const uploadStatus=document.getElementById("uploadStatus");
+const galleryCount=document.getElementById("galleryCount");
+const SUPABASE_BUCKET="trocki-gallery";
+let supabaseClient=null;
+
+function setUploadStatus(text, error=false){
+  if(!uploadStatus) return;
+  uploadStatus.textContent=text;
+  uploadStatus.style.opacity=text?"1":"0";
+  uploadStatus.classList.toggle("error",!!error);
 }
+
+function addRemotePhoto(url, name){
+  if(!grid) return;
+  const d=document.createElement("figure");
+  d.className="gallery-item remote-photo";
+  d.innerHTML=`<img src="${url}" alt="Troçki Gallery — ${name}" loading="lazy"><figcaption>Troçki Gallery · ${name}</figcaption>`;
+  grid.appendChild(d);
+}
+
+async function initSupabaseGallery(){
+  if(!window.supabase || !window.TROCKI_SUPABASE) return;
+  try{
+    supabaseClient=window.supabase.createClient(TROCKI_SUPABASE.url,TROCKI_SUPABASE.anonKey);
+    const {data,error}=await supabaseClient.storage.from(SUPABASE_BUCKET).list("",{limit:100,sortBy:{column:"created_at",order:"desc"}});
+    if(error) throw error;
+    (data||[]).filter(x=>x.name && x.name!==".emptyFolderPlaceholder").forEach(x=>{
+      const {data:pub}=supabaseClient.storage.from(SUPABASE_BUCKET).getPublicUrl(x.name);
+      if(pub?.publicUrl) addRemotePhoto(pub.publicUrl,x.name);
+    });
+    const localCount=grid?.querySelectorAll(".gallery-item:not(.remote-photo)").length||0;
+    if(galleryCount) galleryCount.textContent=`${localCount+(data||[]).length} fotoğraf arşivlendi`;
+  }catch(e){
+    console.warn("Supabase Gallery okunamadı:",e);
+    setUploadStatus("Supabase bağlantısı hazır değil. Bucket/politikaları kontrol edin.",true);
+  }
+}
+
+if(input){
+  input.onchange=async()=>{
+    const files=[...input.files];
+    if(!files.length) return;
+    if(!supabaseClient){
+      setUploadStatus("Supabase bağlantısı hazır değil.",true);
+      input.value="";
+      return;
+    }
+    setUploadStatus(`${files.length} fotoğraf yükleniyor…`);
+    let ok=0;
+    for(const f of files){
+      if(!f.type.startsWith("image/")) continue;
+      if(f.size>10*1024*1024){
+        setUploadStatus(`${f.name} 10 MB sınırını aşıyor.`,true);
+        continue;
+      }
+      const ext=(f.name.split(".").pop()||"jpg").toLowerCase().replace(/[^a-z0-9]/g,"");
+      const safeBase=(f.name.replace(/\.[^.]+$/,"" ).toLowerCase().replace(/[^a-z0-9-_]+/g,"-").replace(/^-+|-+$/g,"")||"foto");
+      const path=`${Date.now()}-${crypto.randomUUID()}-${safeBase}.${ext}`;
+      const {error}=await supabaseClient.storage.from(SUPABASE_BUCKET).upload(path,f,{cacheControl:"31536000",upsert:false,contentType:f.type});
+      if(error){
+        console.error(error);
+        setUploadStatus(`Yükleme başarısız: ${error.message}`,true);
+        continue;
+      }
+      const {data:pub}=supabaseClient.storage.from(SUPABASE_BUCKET).getPublicUrl(path);
+      if(pub?.publicUrl) addRemotePhoto(pub.publicUrl,f.name);
+      ok++;
+    }
+    const total=grid?.querySelectorAll(".gallery-item").length||0;
+    if(galleryCount) galleryCount.textContent=`${total} fotoğraf arşivlendi`;
+    if(ok) setUploadStatus(`${ok} fotoğraf Supabase'e yüklendi.`);
+    input.value="";
+  };
+}
+
+initSupabaseGallery();
 
 const menuBtn=document.getElementById("menuBtn");
 const sidebar=document.getElementById("sidebar");

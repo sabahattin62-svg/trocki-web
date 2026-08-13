@@ -236,9 +236,10 @@
       </div>
 
       <div class="gallery-toolbar">
-        <div class="gallery-count">20 fotoğraf arşivlendi</div>
+        <div class="gallery-count" id="galleryCount">20 fotoğraf arşivlendi</div>
         <label class="upload-btn" for="photoInput">＋ Yeni fotoğraf ekle</label>
-        <input id="photoInput" type="file" accept="image/*" multiple>
+        <input id="photoInput" type="file" accept="image/jpeg,image/png,image/webp,image/gif" multiple>
+        <span id="uploadStatus" class="upload-status" role="status" aria-live="polite"></span>
       </div>
 
       <div id="galleryGrid" class="gallery-grid">
@@ -291,6 +292,8 @@
 
 <div class="visitor-counter">👁️ <span data-t="visitors">Ziyaretçi</span>: <strong id="visitor-count">—</strong></div>
 
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+<script src="supabase-config.js"></script>
 <script src="app.js"></script>
 </body>
 </html>

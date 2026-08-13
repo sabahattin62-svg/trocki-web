@@ -1,0 +1,22 @@
+TROÇKİ V26 — SUPABASE FOTOĞRAF YÜKLEME
+
+1) Supabase > Depolamak (Storage) bölümüne gir.
+2) Yeni bucket oluştur. Adı tam olarak: trocki-gallery
+3) Bucket'ı PUBLIC (Genel) yap.
+4) SQL Editor'a gir ve aşağıdaki politikaları çalıştır:
+
+create policy "Troçki Gallery public upload"
+on storage.objects for insert
+to anon
+with check (bucket_id = 'trocki-gallery');
+
+create policy "Troçki Gallery public read"
+on storage.objects for select
+to anon
+using (bucket_id = 'trocki-gallery');
+
+Not: Bu yapı giriş yapmadan fotoğraf yüklemeye izin verir. Bu nedenle siteyi ziyaret eden herkes teknik olarak fotoğraf yükleyebilir. Daha güvenli bir yönetim sistemi istersen sonraki sürümde Supabase Auth ile sadece senin yükleme yapabileceğin yapıya geçebiliriz.
+
+5) Netlify'a V26 klasörünün içindeki dosyaları ZIP olarak deploy et.
+6) Sitede Galeri > Yeni fotoğraf ekle ile bir fotoğraf seç.
+7) Fotoğraf Supabase Storage/trocki-gallery içine yüklenir ve sayfada görünür.
