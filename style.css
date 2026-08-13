@@ -5,3 +5,12 @@
 .article-full{line-height:1.85;color:#d9d4ca}
 .article-full h3{font-family:Georgia,serif;color:#f0e7d2;font-size:1.25rem;margin:28px 0 10px}
 .article-full p{margin:0 0 18px}
+/* v29 — mobile menu fix */
+@media (max-width:900px){
+  .sidebar{display:flex;position:fixed;left:0;top:65px;bottom:0;width:min(300px,82vw);transform:translateX(-105%);transition:transform .25s ease;z-index:60;box-shadow:18px 0 45px rgba(0,0,0,.45);overflow:auto}
+  .sidebar.open{transform:translateX(0)}
+  .mobile-top{z-index:70}
+  .mobile-top button{position:relative;z-index:71;cursor:pointer;padding:8px 10px;line-height:1}
+  body.menu-open{overflow:hidden}
+}
+@media (min-width:901px){.mobile-top{display:none!important}}

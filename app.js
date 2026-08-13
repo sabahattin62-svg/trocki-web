@@ -83,3 +83,16 @@ document.getElementById("clearBtn").onclick=()=>{grid.querySelectorAll(".gallery
 
 document.getElementById("menuBtn")?.addEventListener("click",()=>document.getElementById("sidebar")?.classList.toggle("open"));
 (async()=>{try{const r=await fetch("https://api.counterapi.dev/v1/trocki22-site/visits/up");const d=await r.json();if(d?.count!==undefined)document.getElementById("visitor-count").textContent=Number(d.count).toLocaleString("tr-TR")}catch(e){document.getElementById("visitor-count").textContent="—"}})();
+
+// v29 — reliable mobile navigation
+(()=>{
+ const sidebar=document.getElementById('sidebar');
+ const menuBtn=document.getElementById('menuBtn');
+ if(!sidebar||!menuBtn) return;
+ const closeMenu=()=>{sidebar.classList.remove('open');document.body.classList.remove('menu-open');menuBtn.setAttribute('aria-expanded','false');menuBtn.textContent='☰';};
+ const openMenu=()=>{sidebar.classList.add('open');document.body.classList.add('menu-open');menuBtn.setAttribute('aria-expanded','true');menuBtn.textContent='✕';};
+ menuBtn.onclick=(e)=>{e.preventDefault();sidebar.classList.contains('open')?closeMenu():openMenu();};
+ sidebar.querySelectorAll('nav a,.brand').forEach(a=>a.addEventListener('click',()=>{if(window.innerWidth<=900)closeMenu();}));
+ window.addEventListener('resize',()=>{if(window.innerWidth>900)closeMenu();});
+ document.addEventListener('keydown',e=>{if(e.key==='Escape')closeMenu();});
+})();
