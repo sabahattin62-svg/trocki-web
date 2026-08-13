@@ -1,0 +1,21 @@
+TROÇKİ WEB V22 — GOOGLE SEO PAKETİ
+
+Eklenenler:
+- SEO başlığı ve meta açıklaması
+- canonical URL
+- robots.txt
+- sitemap.xml
+- sitemap içinde ana sayfa ve ana fotoğraf
+- Open Graph sosyal paylaşım meta bilgileri
+- Twitter Card meta bilgileri
+- Schema.org Person + WebSite yapılandırılmış verileri
+- Google'ın tarayabileceği index/follow yönergeleri
+- Netlify için temel güvenlik ve önbellekleme başlıkları
+
+Site adresi:
+https://trocki.netlify.app/
+
+Search Console'da yayınlandıktan sonra sitemap olarak:
+https://trocki.netlify.app/sitemap.xml
+
+gönderilebilir.
