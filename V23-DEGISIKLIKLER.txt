@@ -1,0 +1,30 @@
+TROÇKİ WEB V23 — SEO / İÇERİK GÜNCELLEMESİ
+
+Önemli not:
+Google, <meta name="keywords"> etiketini sıralama için kullanmaz. Bu nedenle
+anahtar kelimeler gizli bir meta etikete doldurulmadı; bunun yerine gerçek,
+görünür ve anlamlı sayfa içeriğine işlendi.
+
+Eklenen/iyileştirilen konular:
+- Felsefe
+- Sosyoloji
+- Anarşizm
+- Edebiyat
+- Bilim
+- Teknoloji
+- Tarih
+- Etik
+- Siyaset felsefesi
+- Özgürlük
+- Toplum
+- Doğa
+- Tarım
+
+Ayrıca:
+- Ana sayfa title güncellendi.
+- Meta description güncellendi.
+- Open Graph ve Twitter açıklamaları güncellendi.
+- Schema.org WebSite keywords alanı eklendi.
+- Hakkımda metni doğal konu bağlamlarıyla genişletildi.
+- Görünür 'İlgi Alanları' bölümü eklendi.
+- Gerçek fotoğraf, sitemap, robots.txt ve Google doğrulaması korunmuştur.
