@@ -1,0 +1,9 @@
+TROÇKİ WEB V19
+
+- Ana sayfa tasarımının V18 görsel çizgisi korunmuştur.
+- Kullanıcının bu konuşmada yüklediği görsel siteye dahil edilmiştir.
+- Ziyaretçi sayacı daha küçük, daha sade ve daha az dikkat çekici hale getirilmiştir.
+- Koyu tema, turuncu/altın vurgu, makaleler, galeri, hakkında ve iletişim korunmuştur.
+- Instagram @trocki22 ve sabahattin62@gmail.com korunmuştur.
+- Projeler bölümü yoktur.
+- Dil seçici: TR / EN / FR / DE.

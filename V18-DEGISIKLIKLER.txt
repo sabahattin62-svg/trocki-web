@@ -1,0 +1,15 @@
+TROÇKİ WEB V18
+
+Site, daha önce gösterilen koyu portföy görselinin estetiğine göre yeniden düzenlendi:
+- Sol koyu sabit menü ve mobil üst menü
+- Altın/kehribar vurgu rengi
+- Büyük hero alanı ve kullanıcının gerçek fotoğrafı
+- Hakkımda bölümü
+- Makaleler kartları
+- Fotoğraf arşivi
+- İletişim bölümü
+- Türkçe / English / Français / Deutsch dil seçici
+- Instagram @trocki22 ve sabahattin62@gmail.com
+- Çevrimiçi ziyaretçi sayacı
+- Projeler bölümü yok
+- Mobil ve tablet uyumlu tasarım

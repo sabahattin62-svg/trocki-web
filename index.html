@@ -1,27 +1,125 @@
-<!doctype html><html lang="tr"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="theme-color" content="#171717"><title>TROÇKİ — Kişisel Alan</title><link rel="stylesheet" href="style.css"></head><body class="dark-theme">
-<header class="top"><a class="logo" href="#anasayfa">TROÇKİ</a><button class="menuBtn" id="menuBtn" aria-label="Menü">☰</button>
-<nav id="nav"><a href="#anasayfa" data-i="home">Ana Sayfa</a><a href="#felsefe" data-i="ph">Felsefe</a><a href="#yazilar" data-i="articles">Yazılar</a><a href="#yazilim" data-i="software">Yazılım</a><a href="#galeri" data-i="gallery">Fotoğraf Arşivi</a><a href="#iletisim" data-i="contact">İletişim</a></nav>
-<div class="langs"><button data-lang="tr">TR</button><button data-lang="en">EN</button><button data-lang="fr">FR</button><button data-lang="de">DE</button></div></header>
-<main>
-<section id="anasayfa" class="hero"><div class="heroGlow"></div><small data-i="eyebrow">KİŞİSEL ALAN / FOTOĞRAF ARŞİVİ</small><h1 data-i="hero">Doğa,<br><em>hafıza,</em><br>özgürlük.</h1><p data-i="lead">Felsefe, bilim, tarih, yazılım ve doğa arasında dolaşan kişisel bir alan.</p><a class="btn orange" href="#galeri" data-i="photos">Fotoğraflara geç →</a></section>
-<section id="felsefe" class="section"><small>01 / FELSEFE</small><h2>Düşüncenin izinde.</h2><div class="grid"><article class="card blue"><b>SPINOZA</b><h3>Özgürlük ve zorunluluk</h3><p>Özgürlüğü doğanın dışında değil, onun zorunluluğunu kavramakta arayan bir okuma.</p></article><article class="card purple"><b>NIETZSCHE</b><h3>Değerleri yeniden düşünmek</h3><p>Ahlakın kökeni, güç ve insanın kendisini aşma çabası üzerine notlar.</p></article><article class="card green"><b>SARTRE / CAMUS</b><h3>Özgürlük ve absürd</h3><p>Seçim, sorumluluk, anlam arayışı ve absürd karşısında insanın tutumu.</p></article></div></section>
-<section id="yazilar" class="section"><small>02 / YAZILAR</small><h2>Kelimeler düşüncenin izidir.</h2><div class="grid"><article class="card orangeCard"><b>SPINOZA</b><h3>Özgürlük ve Zorunluluk</h3><p>Özgürlüğü doğanın dışında değil, onun zorunluluğunu kavramakta arayan bir okuma.</p><button class="btn" data-article="spinoza">Makaleyi oku →</button></article><article class="card purple"><b>ANARŞİZM</b><h3>Özgürlüğün ve Dayanışmanın Felsefesi</h3><p>Özgürlük, dayanışma, otorite ve insanın kendi yaşamı üzerindeki söz hakkı üzerine.</p><button class="btn" data-article="anarchism">Makaleyi oku →</button></article></div></section>
-<section id="yazilim" class="section"><small>03 / YAZILIM</small><h2>Fikri çalışan bir sisteme dönüştürmek.</h2><div class="grid"><article class="card blue"><b>VB.NET</b><h3>MarketPOS · ERP · Stok</h3></article><article class="card green"><b>JAVA</b><h3>Kişisel bütçe · Veritabanı</h3></article><article class="card orangeCard"><b>WEB</b><h3>HTML · CSS · JavaScript</h3></article></div></section>
-<section id="galeri" class="section"><small>04 / FOTOĞRAF ARŞİVİ</small><h2>Yolculuklardan kareler.</h2><p>iPhone'dan fotoğraf seç; galeride hemen görünsün.</p><label class="btn orange" for="photoInput">＋ Fotoğraf Yükle</label><input id="photoInput" type="file" accept="image/*" multiple><button class="clearBtn" id="clearBtn">Temizle</button><div id="galleryGrid" class="gallery"></div><p id="empty" class="empty">Henüz fotoğraf yok.</p></section>
+<!doctype html>
+<html lang="tr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="theme-color" content="#08090b">
+<meta name="description" content="Troçki — düşünce, felsefe, bilim, teknoloji, doğa ve fotoğraf arşivi.">
+<title>TROÇKİ — Düşün · Üret · Paylaş</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<div class="site">
+  <aside class="sidebar" id="sidebar">
+    <a class="brand" href="#anasayfa">Troçki<span>•</span></a>
+    <p class="brand-sub">Kişisel alan · düşünce · arşiv</p>
+    <nav>
+      <a class="active" href="#anasayfa">⌂ <span data-t="home">Ana Sayfa</span></a>
+      <a href="#hakkimda">◉ <span data-t="about">Hakkımda</span></a>
+      <a href="#makaleler">✎ <span data-t="articles">Makaleler</span></a>
+      <a href="#galeri">▧ <span data-t="gallery">Galeri</span></a>
+      <a href="#iletisim">✉ <span data-t="contact">İletişim</span></a>
+    </nav>
+    <div class="side-bottom">
+      <div class="socials">
+        <a href="https://www.instagram.com/trocki22/" target="_blank" rel="noopener">Instagram</a>
+        <a href="mailto:sabahattin62@gmail.com">E-posta</a>
+      </div>
+      <div class="langs">
+        <button data-lang="tr">TR</button><button data-lang="en">EN</button>
+        <button data-lang="fr">FR</button><button data-lang="de">DE</button>
+      </div>
+      <small>© 2026 TROÇKİ</small>
+    </div>
+  </aside>
 
-<section id="iletisim" class="section contact"><small>06 / İLETİŞİM</small><h2>Bir fikir,<br>bir sohbet.</h2><p class="contact-social">📷 Instagram: <a href="https://www.instagram.com/trocki22/" target="_blank" rel="noopener">@trocki22</a></p></section></main>
-<div id="modal" class="modal"><button id="closeModal">×</button><article id="modalArticle"></article></div><footer>TROÇKİ · Düşün · Üret · Paylaş. · © 2026</footer><script src="app.js"></script><div id="visitor-counter" class="visitor-counter">👁️ Ziyaretçi: <strong id="visitor-count">—</strong></div>
-<script>
-(async function () {
-  const el = document.getElementById("visitor-count");
-  if (!el) return;
-  try {
-    const r = await fetch("https://api.counterapi.dev/v1/trocki22-site/visits/up");
-    const d = await r.json();
-    if (d && d.count !== undefined) el.textContent = Number(d.count).toLocaleString("tr-TR");
-  } catch(e) {
-    el.textContent = "—";
-  }
-})();
-</script>
-</body></html>
+  <div class="mobile-top">
+    <a class="brand" href="#anasayfa">Troçki<span>•</span></a>
+    <button id="menuBtn" aria-label="Menü">☰</button>
+  </div>
+
+  <main>
+    <section id="anasayfa" class="hero">
+      <div class="hero-copy">
+        <div class="eyebrow">KİŞİSEL ALAN / DÜŞÜNCE / ARŞİV</div>
+        <div class="hello" data-t="hello">Merhaba, ben</div>
+        <h1>Troçki</h1>
+        <div class="gold-line"></div>
+        <h2 data-t="tagline">Düşünen, üreten, sorgulayan.</h2>
+        <p data-t="heroText">Felsefe, bilim, tarih, teknoloji ve doğa arasında dolaşan; öğrendiklerini, düşündüklerini ve ürettiklerini paylaşan kişisel bir alan.</p>
+        <a class="outline-btn" href="#hakkimda" data-t="more">Daha fazlası →</a>
+      </div>
+      <div class="hero-photo-wrap">
+        <img src="assets/trocki.jpg" alt="Troçki" class="hero-photo">
+        <div class="photo-caption">TROÇKİ / DÜŞÜNCELERİN GÜCÜ VE ÖZGÜRLÜK</div>
+      </div>
+    </section>
+
+    <section class="feature-grid">
+      <a href="#makaleler" class="feature"><span>◉</span><b>Felsefe</b><small>Düşünürlerin izinde,<br>kendi yolumda.</small>→</a>
+      <a href="#makaleler" class="feature"><span>✎</span><b>Makaleler</b><small>Düşüncelerimi<br>kelimelere döküyorum.</small>→</a>
+      <a href="#galeri" class="feature"><span>⌁</span><b>Fotoğraf</b><small>Doğadan, yollardan,<br>anlardan kareler.</small>→</a>
+      <a href="#iletisim" class="feature"><span>✉</span><b>İletişim</b><small>Bir fikir, bir sohbet,<br>bir karşılaşma.</small>→</a>
+    </section>
+
+    <section id="hakkimda" class="about section">
+      <div class="about-photo"><img src="assets/trocki.jpg" alt="Troçki"></div>
+      <div class="about-copy">
+        <div class="eyebrow">01 / HAKKIMDA</div>
+        <h2 data-t="aboutTitle">Sade bir yaşam,<br>derin düşünceler.</h2>
+        <p data-t="aboutText">Ben Sabahattin. Takma adım Troçki. 1962 doğumluyum ve Çerkezköy'de yaşıyorum. Ziraat mühendisiyim; üniversite eğitimimin ardından felsefeyi hâlâ öğrenmeye, okumaya ve sorgulamaya devam ediyorum.</p>
+        <p>Dünya görüşüm anarşizm. Düşünürleri bir kalıba sokmadan, farklı gelenekleri ve fikirleri okuyarak anlamaya çalışıyorum. Bilime duyduğum merak kadar teknolojiyle yeni bir şey üretmenin verdiği heyecanı da önemsiyorum.</p>
+        <div class="signature">Troçki</div>
+      </div>
+    </section>
+
+    <section id="makaleler" class="section">
+      <div class="section-head"><div><div class="eyebrow">02 / MAKALELER</div><h2 data-t="articleTitle">Düşüncenin izinde.</h2></div></div>
+      <div class="article-grid">
+        <article class="article-card"><span>SPINOZA</span><h3>Özgürlük ve Zorunluluk</h3><p>Özgürlüğü doğanın dışında değil, onun zorunluluğunu kavramakta arayan bir okuma.</p><button data-article="spinoza">Makaleyi oku →</button></article>
+        <article class="article-card"><span>NIETZSCHE</span><h3>Değerleri Yeniden Düşünmek</h3><p>Ahlakın kökeni, güç ve insanın kendisini aşma çabası üzerine notlar.</p><button data-article="nietzsche">Makaleyi oku →</button></article>
+        <article class="article-card"><span>ANARŞİZM</span><h3>Özgürlük ve Dayanışma</h3><p>Otoriteyi, özgürlüğü ve insanın kendi yaşamı üzerindeki söz hakkını yeniden düşünmek.</p><button data-article="anarchism">Makaleyi oku →</button></article>
+        <article class="article-card"><span>TARİH / TOPLUM</span><h3>Avcı-Toplayıcıdan Devlete</h3><p>İnsanlığın uzun avcı-toplayıcı geçmişinden tarıma, devlete ve dinin kurumsallaşmasına uzanan dönüşüm.</p><button data-article="history">Makaleyi oku →</button></article>
+      </div>
+    </section>
+
+    <section id="galeri" class="section gallery-section">
+      <div class="section-head"><div><div class="eyebrow">03 / FOTOĞRAF ARŞİVİ</div><h2>Doğadan, yollardan,<br>anlardan kareler.</h2></div></div>
+      <div class="gallery-toolbar">
+        <label class="upload-btn" for="photoInput">＋ Fotoğraf yükle</label>
+        <input id="photoInput" type="file" accept="image/*" multiple>
+        <button id="clearBtn" class="ghost-btn">Temizle</button>
+      </div>
+      <div id="galleryGrid" class="gallery-grid">
+        <div class="gallery-item featured"><img src="assets/trocki.jpg" alt="Troçki"></div>
+      </div>
+      <p id="empty" class="empty">Kendi fotoğraflarını eklediğinde burada görünecek.</p>
+    </section>
+
+    <section id="iletisim" class="section contact">
+      <div class="eyebrow">04 / İLETİŞİM</div>
+      <h2>Bir fikir,<br><em>bir sohbet.</em></h2>
+      <div class="contact-row">
+        <a href="mailto:sabahattin62@gmail.com">sabahattin62@gmail.com</a>
+        <a href="https://www.instagram.com/trocki22/" target="_blank" rel="noopener">@trocki22 · Instagram</a>
+        <span>Çerkezköy · Türkiye</span>
+      </div>
+    </section>
+
+    <footer>
+      <strong>TROÇKİ</strong>
+      <span>Düşün · Üret · Paylaş.</span>
+      <span>© 2026</span>
+    </footer>
+  </main>
+</div>
+
+<div class="modal" id="modal" aria-hidden="true">
+  <div class="modal-box"><button id="closeModal">×</button><div id="modalArticle"></div></div>
+</div>
+
+<div class="visitor-counter">👁️ <span data-t="visitors">Ziyaretçi</span>: <strong id="visitor-count">—</strong></div>
+
+<script src="app.js"></script>
+</body>
+</html>

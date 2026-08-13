@@ -1,0 +1,6 @@
+TROÇKİ WEB V17
+
+- Kullanıcının Kitaplıkta bulunan fotoğrafı siteye eklendi.
+- Fotoğraf assets/trocki.jpg olarak paketlendi.
+- Fotoğrafın görünümü için koyu tema ile uyumlu çerçeve/stil eklendi.
+- Önceki site özellikleri korunmuştur.
