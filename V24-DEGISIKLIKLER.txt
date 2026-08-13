@@ -1,0 +1,31 @@
+TROÇKİ WEB V24 — TAM ARŞİV GÜNCELLEMESİ
+
+Bu sürümde eksik görünen iki ana bölüm tamamen yenilendi.
+
+FOTOĞRAF ARŞİVİ
+- 20 önceki görsel site paketine yerel dosya olarak dahil edildi.
+- Ana portre korunuyor.
+- Fotoğraflar assets/gallery/ altında.
+- Galeri artık telefonun geçici belleğine bağlı değil.
+- Yeni fotoğraf seçme özelliği korunuyor.
+
+MAKALE ARŞİVİ
+- Sartre: Özgürlük Mahkûmiyettir
+- Camus: Absürd İnsan ve Başkaldırı
+- Nietzsche: Tanrı Öldü mü?
+- Spinoza: Özgürlük Bilmekle Başlar
+- Proudhon: Mülkiyet Hırsızlıktır!
+- Özgürlük ve Dayanışma
+- Avcı-Toplayıcıdan Devlete
+- Likya Uygarlıkları ve Anadolu'nun Belleği
+
+Her makale artık modal pencerede birden fazla paragrafla tam okunabilir.
+Kategori filtreleri eklendi: Tümü / Felsefe / Anarşizm / Tarih / Toplum / Edebiyat.
+
+SEO
+- Sitemap fotoğrafları da içeriyor.
+- Başlık ve açıklama güncellendi.
+- Önceki Google doğrulama, robots.txt ve SEO ayarları korunuyor.
+
+Not:
+Makale başlıkları ve kısa özetler önceki tasarım/arşivdeki içeriklerden korunmuş; eksik gövdeler okunabilir, özgün makale metinleriyle genişletilmiştir.

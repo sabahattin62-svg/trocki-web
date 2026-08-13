@@ -7,8 +7,84 @@
     <changefreq>weekly</changefreq>
     <priority>1.0</priority>
     <image:image>
-      <image:loc>https://trocki.netlify.app/assets/trocki.jpg</image:loc>
-      <image:title>Troçki — Sabahattin</image:title>
+      <image:loc>https://trocki.netlify.app/assets/gallery/foto-01.png</image:loc>
+      <image:title>Troçki fotoğraf arşivi</image:title>
+    </image:image>
+    <image:image>
+      <image:loc>https://trocki.netlify.app/assets/gallery/foto-02.webp</image:loc>
+      <image:title>Troçki fotoğraf arşivi</image:title>
+    </image:image>
+    <image:image>
+      <image:loc>https://trocki.netlify.app/assets/gallery/foto-03.webp</image:loc>
+      <image:title>Troçki fotoğraf arşivi</image:title>
+    </image:image>
+    <image:image>
+      <image:loc>https://trocki.netlify.app/assets/gallery/foto-04.png</image:loc>
+      <image:title>Troçki fotoğraf arşivi</image:title>
+    </image:image>
+    <image:image>
+      <image:loc>https://trocki.netlify.app/assets/gallery/foto-05.jpeg</image:loc>
+      <image:title>Troçki fotoğraf arşivi</image:title>
+    </image:image>
+    <image:image>
+      <image:loc>https://trocki.netlify.app/assets/gallery/foto-06.png</image:loc>
+      <image:title>Troçki fotoğraf arşivi</image:title>
+    </image:image>
+    <image:image>
+      <image:loc>https://trocki.netlify.app/assets/gallery/foto-07.jpeg</image:loc>
+      <image:title>Troçki fotoğraf arşivi</image:title>
+    </image:image>
+    <image:image>
+      <image:loc>https://trocki.netlify.app/assets/gallery/foto-08.png</image:loc>
+      <image:title>Troçki fotoğraf arşivi</image:title>
+    </image:image>
+    <image:image>
+      <image:loc>https://trocki.netlify.app/assets/gallery/foto-09.png</image:loc>
+      <image:title>Troçki fotoğraf arşivi</image:title>
+    </image:image>
+    <image:image>
+      <image:loc>https://trocki.netlify.app/assets/gallery/foto-10.png</image:loc>
+      <image:title>Troçki fotoğraf arşivi</image:title>
+    </image:image>
+    <image:image>
+      <image:loc>https://trocki.netlify.app/assets/gallery/foto-11.png</image:loc>
+      <image:title>Troçki fotoğraf arşivi</image:title>
+    </image:image>
+    <image:image>
+      <image:loc>https://trocki.netlify.app/assets/gallery/foto-12.jpeg</image:loc>
+      <image:title>Troçki fotoğraf arşivi</image:title>
+    </image:image>
+    <image:image>
+      <image:loc>https://trocki.netlify.app/assets/gallery/foto-13.png</image:loc>
+      <image:title>Troçki fotoğraf arşivi</image:title>
+    </image:image>
+    <image:image>
+      <image:loc>https://trocki.netlify.app/assets/gallery/foto-14.png</image:loc>
+      <image:title>Troçki fotoğraf arşivi</image:title>
+    </image:image>
+    <image:image>
+      <image:loc>https://trocki.netlify.app/assets/gallery/foto-15.jpeg</image:loc>
+      <image:title>Troçki fotoğraf arşivi</image:title>
+    </image:image>
+    <image:image>
+      <image:loc>https://trocki.netlify.app/assets/gallery/foto-16.png</image:loc>
+      <image:title>Troçki fotoğraf arşivi</image:title>
+    </image:image>
+    <image:image>
+      <image:loc>https://trocki.netlify.app/assets/gallery/foto-17.png</image:loc>
+      <image:title>Troçki fotoğraf arşivi</image:title>
+    </image:image>
+    <image:image>
+      <image:loc>https://trocki.netlify.app/assets/gallery/foto-18.png</image:loc>
+      <image:title>Troçki fotoğraf arşivi</image:title>
+    </image:image>
+    <image:image>
+      <image:loc>https://trocki.netlify.app/assets/gallery/foto-19.png</image:loc>
+      <image:title>Troçki fotoğraf arşivi</image:title>
+    </image:image>
+    <image:image>
+      <image:loc>https://trocki.netlify.app/assets/gallery/foto-20.png</image:loc>
+      <image:title>Troçki fotoğraf arşivi</image:title>
     </image:image>
   </url>
 </urlset>

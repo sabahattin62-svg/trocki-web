@@ -1,0 +1,8 @@
+TROÇKİ WEB V25
+
+- Mobil menü düzeltildi: ☰ düğmesi artık gerçek aç/kapat işlemi yapıyor.
+- Menü açıldığında sol panel mobilde görünür hale geliyor.
+- Menü bağlantısına dokununca panel otomatik kapanıyor.
+- aria-expanded erişilebilirlik özelliği eklendi.
+- Kullanıcının gönderdiği portre assets/trocki.jpg olarak ana sayfa ve Hakkımda bölümünde kullanılıyor.
+- Fotoğraf alt metinleri güncellendi.

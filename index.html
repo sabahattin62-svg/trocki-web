@@ -5,14 +5,14 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <link rel="stylesheet" href="style.css">
 <meta name="theme-color" content="#08090b">
-<meta name="description" content="Troçki — Sabahattin. Felsefe, sosyoloji, anarşizm, edebiyat, bilim, teknoloji, tarih, etik, özgürlük ve toplum üzerine kişisel yazılar ve düşünceler.">
+<meta name="description" content="Troçki — Sabahattin. Felsefe, sosyoloji, anarşizm, edebiyat, bilim, teknoloji, tarih, toplum, etik, özgürlük ve fotoğraf arşivi üzerine kişisel yazılar ve düşünceler.">
 <meta name="author" content="Sabahattin — Troçki">
 <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1">
 <link rel="canonical" href="https://trocki.netlify.app/">
 
 <meta property="og:type" content="website">
 <meta property="og:title" content="Troçki — Felsefe, Sosyoloji, Anarşizm, Edebiyat ve Bilim">
-<meta property="og:description" content="Felsefe, sosyoloji, anarşizm, edebiyat, bilim, teknoloji ve tarih üzerine kişisel düşünceler, makaleler ve fotoğraf arşivi.">
+<meta property="og:description" content="Felsefe, sosyoloji, anarşizm, edebiyat, bilim, teknoloji, tarih ve toplum üzerine makaleler; kişisel fotoğraf arşivi ve düşünceler.">
 <meta property="og:url" content="https://trocki.netlify.app/">
 <meta property="og:image" content="https://trocki.netlify.app/assets/trocki.jpg">
 <meta property="og:locale" content="tr_TR">
@@ -22,7 +22,7 @@
 <meta name="twitter:description" content="Felsefe, sosyoloji, anarşizm, edebiyat, bilim, teknoloji ve tarih üzerine kişisel site.">
 <meta name="twitter:image" content="https://trocki.netlify.app/assets/trocki.jpg">
 
-<title>Troçki | Felsefe, Sosyoloji, Anarşizm, Edebiyat ve Bilim</title>
+<title>Troçki | Felsefe, Sosyoloji, Anarşizm, Edebiyat, Bilim ve Tarih</title>
 
 <script type="application/ld+json">
 {
@@ -82,7 +82,7 @@
 
   <div class="mobile-top">
     <a class="brand" href="#anasayfa">Troçki<span>•</span></a>
-    <button id="menuBtn" aria-label="Menü">☰</button>
+    <button id="menuBtn" aria-label="Menüyü aç/kapat" aria-expanded="false">☰</button>
   </div>
 
   <main>
@@ -97,7 +97,7 @@
         <a class="outline-btn" href="#hakkimda" data-t="more">Daha fazlası →</a>
       </div>
       <div class="hero-photo-wrap">
-        <img src="assets/trocki.jpg" alt="Troçki" class="hero-photo">
+        <img src="assets/trocki.jpg" alt="Troçki — kişisel portre" class="hero-photo">
         <div class="photo-caption">TROÇKİ / DÜŞÜNCELERİN GÜCÜ VE ÖZGÜRLÜK</div>
       </div>
     </section>
@@ -110,7 +110,7 @@
     </section>
 
     <section id="hakkimda" class="about section">
-      <div class="about-photo"><img src="assets/trocki.jpg" alt="Troçki"></div>
+      <div class="about-photo"><img src="assets/trocki.jpg" alt="Troçki — kişisel portre"></div>
       <div class="about-copy">
         <div class="eyebrow">01 / HAKKIMDA</div>
         <h2 data-t="aboutTitle">Sade bir yaşam,<br>derin düşünceler.</h2>
@@ -150,26 +150,121 @@
     </section>
 
     <section id="makaleler" class="section">
-      <div class="section-head"><div><div class="eyebrow">02 / MAKALELER</div><h2 data-t="articleTitle">Düşüncenin izinde.</h2></div></div>
+      <div class="section-head">
+        <div>
+          <div class="eyebrow">02 / MAKALE ARŞİVİ</div>
+          <h2 data-t="articleTitle">Düşüncenin izinde.</h2>
+        </div>
+        <p class="section-note">Felsefe, toplum, tarih, anarşizm, edebiyat ve insan üzerine okumalar.</p>
+      </div>
+
+      <div class="article-filters">
+        <button class="article-filter active" data-filter="all">Tümü</button>
+        <button class="article-filter" data-filter="felsefe">Felsefe</button>
+        <button class="article-filter" data-filter="anarşizm">Anarşizm</button>
+        <button class="article-filter" data-filter="tarih">Tarih</button>
+        <button class="article-filter" data-filter="toplum">Toplum</button>
+        <button class="article-filter" data-filter="edebiyat">Edebiyat</button>
+      </div>
+
       <div class="article-grid">
-        <article class="article-card"><span>SPINOZA</span><h3>Özgürlük ve Zorunluluk</h3><p>Özgürlüğü doğanın dışında değil, onun zorunluluğunu kavramakta arayan bir okuma.</p><button data-article="spinoza">Makaleyi oku →</button></article>
-        <article class="article-card"><span>NIETZSCHE</span><h3>Değerleri Yeniden Düşünmek</h3><p>Ahlakın kökeni, güç ve insanın kendisini aşma çabası üzerine notlar.</p><button data-article="nietzsche">Makaleyi oku →</button></article>
-        <article class="article-card"><span>ANARŞİZM</span><h3>Özgürlük ve Dayanışma</h3><p>Otoriteyi, özgürlüğü ve insanın kendi yaşamı üzerindeki söz hakkını yeniden düşünmek.</p><button data-article="anarchism">Makaleyi oku →</button></article>
-        <article class="article-card"><span>TARİH / TOPLUM</span><h3>Avcı-Toplayıcıdan Devlete</h3><p>İnsanlığın uzun avcı-toplayıcı geçmişinden tarıma, devlete ve dinin kurumsallaşmasına uzanan dönüşüm.</p><button data-article="history">Makaleyi oku →</button></article>
+        <article class="article-card" data-category="felsefe">
+          <span>FELSEFE · SARTRE</span>
+          <h3>Sartre: Özgürlük Mahkûmiyettir</h3>
+          <p>İnsan kendisini seçmekten kaçamaz; özgürlük, hazır bir özün değil, seçimlerin sorumluluğunun adıdır.</p>
+          <button data-article="sartre">Makaleyi oku →</button>
+        </article>
+
+        <article class="article-card" data-category="felsefe">
+          <span>FELSEFE · CAMUS</span>
+          <h3>Camus: Absürd İnsan ve Başkaldırı</h3>
+          <p>İnsanın anlam arayışı ile dünyanın sessizliği arasındaki gerilim, absürd deneyimin merkezindedir.</p>
+          <button data-article="camus">Makaleyi oku →</button>
+        </article>
+
+        <article class="article-card" data-category="felsefe">
+          <span>FELSEFE · NIETZSCHE</span>
+          <h3>Nietzsche: Tanrı Öldü mü?</h3>
+          <p>Eski değerlerin sarsılması, insanı yalnızca yıkıma değil, yeni değerler yaratma sorumluluğuna da götürür.</p>
+          <button data-article="nietzsche">Makaleyi oku →</button>
+        </article>
+
+        <article class="article-card" data-category="felsefe">
+          <span>FELSEFE · SPINOZA</span>
+          <h3>Spinoza: Özgürlük Bilmekle Başlar</h3>
+          <p>Özgürlüğü zorunluluğun karşıtı olarak değil, zorunluluğun doğasını kavrama yetisi olarak düşünmek.</p>
+          <button data-article="spinoza">Makaleyi oku →</button>
+        </article>
+
+        <article class="article-card" data-category="anarşizm">
+          <span>ANARŞİZM · PROUDHON</span>
+          <h3>Proudhon: Mülkiyet Hırsızlıktır!</h3>
+          <p>Mülkiyet, emek, karşılıklılık ve merkezi otorite arasındaki ilişkiyi anarşist düşüncenin erken tartışmaları üzerinden okumak.</p>
+          <button data-article="proudhon">Makaleyi oku →</button>
+        </article>
+
+        <article class="article-card" data-category="anarşizm">
+          <span>ANARŞİZM · TOPLUM</span>
+          <h3>Özgürlük ve Dayanışma</h3>
+          <p>Anarşizmi yalnızca devletin reddi değil, tahakkümün yerine dayanışmayı koyan bir toplumsal düşünce olarak ele almak.</p>
+          <button data-article="anarchism">Makaleyi oku →</button>
+        </article>
+
+        <article class="article-card" data-category="tarih">
+          <span>TARİH · TOPLUM · DİN</span>
+          <h3>Avcı-Toplayıcıdan Devlete</h3>
+          <p>Yaklaşık 300 bin yıllık insanlık deneyiminden tarıma, yerleşikliğe, hiyerarşiye, devlete ve kurumsal dine uzanan büyük dönüşüm.</p>
+          <button data-article="history">Makaleyi oku →</button>
+        </article>
+
+        <article class="article-card" data-category="tarih">
+          <span>TARİH · ANADOLU</span>
+          <h3>Likya Uygarlıkları ve Anadolu'nun Belleği</h3>
+          <p>Anadolu'nun çok katmanlı tarihine, Likya'nın kentlerine ve kültürel belleğin bugüne bıraktığı izlere bir bakış.</p>
+          <button data-article="lycia">Makaleyi oku →</button>
+        </article>
       </div>
     </section>
 
     <section id="galeri" class="section gallery-section">
-      <div class="section-head"><div><div class="eyebrow">03 / FOTOĞRAF ARŞİVİ</div><h2>Doğadan, yollardan,<br>anlardan kareler.</h2></div></div>
+      <div class="section-head">
+        <div>
+          <div class="eyebrow">03 / FOTOĞRAF ARŞİVİ</div>
+          <h2>Fotoğraflarım,<br>anıların görsel belleği.</h2>
+        </div>
+        <p class="section-note">Önceki çalışmalarımızdaki fotoğraflar bu sürümde kalıcı olarak site paketine dahil edildi.</p>
+      </div>
+
       <div class="gallery-toolbar">
-        <label class="upload-btn" for="photoInput">＋ Fotoğraf yükle</label>
+        <div class="gallery-count">20 fotoğraf arşivlendi</div>
+        <label class="upload-btn" for="photoInput">＋ Yeni fotoğraf ekle</label>
         <input id="photoInput" type="file" accept="image/*" multiple>
-        <button id="clearBtn" class="ghost-btn">Temizle</button>
       </div>
+
       <div id="galleryGrid" class="gallery-grid">
-        <div class="gallery-item featured"><img src="assets/trocki.jpg" alt="Troçki"></div>
+        <figure class="gallery-item"><img src="assets/gallery/foto-01.png" alt="Troçki fotoğraf arşivi 1" loading="lazy"><figcaption>Troçki · Fotoğraf Arşivi</figcaption></figure>
+        <figure class="gallery-item"><img src="assets/gallery/foto-02.webp" alt="Troçki fotoğraf arşivi 2" loading="lazy"><figcaption>Troçki · Fotoğraf Arşivi</figcaption></figure>
+        <figure class="gallery-item"><img src="assets/gallery/foto-03.webp" alt="Troçki fotoğraf arşivi 3" loading="lazy"><figcaption>Troçki · Fotoğraf Arşivi</figcaption></figure>
+        <figure class="gallery-item"><img src="assets/gallery/foto-04.png" alt="Troçki fotoğraf arşivi 4" loading="lazy"><figcaption>Troçki · Fotoğraf Arşivi</figcaption></figure>
+        <figure class="gallery-item"><img src="assets/gallery/foto-05.jpeg" alt="Troçki fotoğraf arşivi 5" loading="lazy"><figcaption>Troçki · Fotoğraf Arşivi</figcaption></figure>
+        <figure class="gallery-item"><img src="assets/gallery/foto-06.png" alt="Troçki fotoğraf arşivi 6" loading="lazy"><figcaption>Troçki · Fotoğraf Arşivi</figcaption></figure>
+        <figure class="gallery-item"><img src="assets/gallery/foto-07.jpeg" alt="Troçki fotoğraf arşivi 7" loading="lazy"><figcaption>Troçki · Fotoğraf Arşivi</figcaption></figure>
+        <figure class="gallery-item"><img src="assets/gallery/foto-08.png" alt="Troçki fotoğraf arşivi 8" loading="lazy"><figcaption>Troçki · Fotoğraf Arşivi</figcaption></figure>
+        <figure class="gallery-item"><img src="assets/gallery/foto-09.png" alt="Troçki fotoğraf arşivi 9" loading="lazy"><figcaption>Troçki · Fotoğraf Arşivi</figcaption></figure>
+        <figure class="gallery-item"><img src="assets/gallery/foto-10.png" alt="Troçki fotoğraf arşivi 10" loading="lazy"><figcaption>Troçki · Fotoğraf Arşivi</figcaption></figure>
+        <figure class="gallery-item"><img src="assets/gallery/foto-11.png" alt="Troçki fotoğraf arşivi 11" loading="lazy"><figcaption>Troçki · Fotoğraf Arşivi</figcaption></figure>
+        <figure class="gallery-item"><img src="assets/gallery/foto-12.jpeg" alt="Troçki fotoğraf arşivi 12" loading="lazy"><figcaption>Troçki · Fotoğraf Arşivi</figcaption></figure>
+        <figure class="gallery-item"><img src="assets/gallery/foto-13.png" alt="Troçki fotoğraf arşivi 13" loading="lazy"><figcaption>Troçki · Fotoğraf Arşivi</figcaption></figure>
+        <figure class="gallery-item"><img src="assets/gallery/foto-14.png" alt="Troçki fotoğraf arşivi 14" loading="lazy"><figcaption>Troçki · Fotoğraf Arşivi</figcaption></figure>
+        <figure class="gallery-item"><img src="assets/gallery/foto-15.jpeg" alt="Troçki fotoğraf arşivi 15" loading="lazy"><figcaption>Troçki · Fotoğraf Arşivi</figcaption></figure>
+        <figure class="gallery-item"><img src="assets/gallery/foto-16.png" alt="Troçki fotoğraf arşivi 16" loading="lazy"><figcaption>Troçki · Fotoğraf Arşivi</figcaption></figure>
+        <figure class="gallery-item"><img src="assets/gallery/foto-17.png" alt="Troçki fotoğraf arşivi 17" loading="lazy"><figcaption>Troçki · Fotoğraf Arşivi</figcaption></figure>
+        <figure class="gallery-item"><img src="assets/gallery/foto-18.png" alt="Troçki fotoğraf arşivi 18" loading="lazy"><figcaption>Troçki · Fotoğraf Arşivi</figcaption></figure>
+        <figure class="gallery-item"><img src="assets/gallery/foto-19.png" alt="Troçki fotoğraf arşivi 19" loading="lazy"><figcaption>Troçki · Fotoğraf Arşivi</figcaption></figure>
+        <figure class="gallery-item"><img src="assets/gallery/foto-20.png" alt="Troçki fotoğraf arşivi 20" loading="lazy"><figcaption>Troçki · Fotoğraf Arşivi</figcaption></figure>
       </div>
-      <p id="empty" class="empty">Kendi fotoğraflarını eklediğinde burada görünecek.</p>
+
+      <p class="gallery-note">Bu fotoğraflar artık yalnızca telefonundaki geçici dosyalar değil; V24 ZIP'inin içinde siteyle birlikte yayınlanacak yerel görsellerdir.</p>
     </section>
 
     <section id="iletisim" class="section contact">
