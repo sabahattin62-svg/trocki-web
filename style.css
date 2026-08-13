@@ -3,3 +3,75 @@
 .visitor-counter strong{color:#f0a23a}
 .contact-social{margin-top:10px}
 .contact-social a{color:inherit}
+
+/* TROÇKİ V16 — KOYU TEMA */
+:root{
+  color-scheme:dark;
+  --bg:#07090d;
+  --bg2:#0d1117;
+  --panel:#11161e;
+  --panel2:#171d26;
+  --text:#f2f4f7;
+  --muted:#aab3bf;
+  --accent:#f0a23a;
+  --border:#29313c;
+}
+html,body{
+  background:#07090d !important;
+  color:#f2f4f7 !important;
+}
+body{
+  background-image:radial-gradient(circle at 15% 10%,rgba(240,162,58,.07),transparent 30%),
+                   radial-gradient(circle at 85% 25%,rgba(80,120,180,.06),transparent 32%) !important;
+}
+header,nav,.navbar,.menu,.mobile-menu,.nav-menu{
+  background:rgba(7,9,13,.96) !important;
+  color:#f2f4f7 !important;
+}
+main,section,.section,footer{
+  background:transparent !important;
+  color:#f2f4f7 !important;
+}
+.card,.article-card,.about-card,.contact-card,.gallery-item,
+article,.panel,.box{
+  background:#11161e !important;
+  color:#f2f4f7 !important;
+  border-color:#29313c !important;
+}
+h1,h2,h3,h4,h5,h6{
+  color:#f5f6f8 !important;
+}
+p,li,span,label{
+  color:#b8c0cb;
+}
+a{
+  color:#f0a23a;
+}
+button,.btn{
+  background:#171d26 !important;
+  color:#f2f4f7 !important;
+  border:1px solid #384250 !important;
+}
+button:hover,.btn:hover{
+  background:#222a35 !important;
+  border-color:#f0a23a !important;
+}
+input,textarea,select{
+  background:#0d1117 !important;
+  color:#f2f4f7 !important;
+  border:1px solid #343d49 !important;
+}
+.gallery-grid img,.gallery-item img{
+  background:#0d1117 !important;
+}
+.visitor-counter{
+  background:#11161e !important;
+  color:#c0c7d0 !important;
+  border-color:#343d49 !important;
+}
+.signature{
+  color:#f0a23a !important;
+}
+footer{
+  border-top:1px solid #29313c !important;
+}

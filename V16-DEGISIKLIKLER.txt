@@ -1,0 +1,8 @@
+TROÇKİ WEB V16
+
+- Güçlendirilmiş koyu tema tüm siteye uygulandı.
+- Ana sayfa, menü, mobil menü, makaleler, galeri, hakkında ve iletişim koyu tasarlandı.
+- Instagram @trocki22 korunmuştur.
+- Ziyaretçi sayacı korunmuştur.
+- Projeler bölümü kaldırılmıştır.
+- Mobil/tablet viewport ayarı kontrol edilmiştir.
