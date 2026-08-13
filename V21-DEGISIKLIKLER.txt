@@ -1,0 +1,8 @@
+TROÇKİ WEB V21
+
+Google Search Console doğrulaması için Google'ın verdiği doğrulama dosyası,
+site kök dizinine aynen eklendi:
+
+google635f235563aece6a.html
+
+Dosya içeriği değiştirilmemiştir.
